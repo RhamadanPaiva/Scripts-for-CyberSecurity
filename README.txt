@@ -1,7 +1,7 @@
-Scripts feitos por mim para agilizar um serviço de Pentest ou estudo
-Somente utilize somente para fins profissionais e com autorização do contratante ou para estudos
-Estes Scripts não devem ser usados para outros fins
-A responsabilidade pelo uso dos scripts é de quem está utilizando
+Scripts feitos por mim para agilizar um serviço de Pentest ou estudo;
+Somente utilize para fins profissionais e com autorização do contratante e administrador do sistema ou para estudos;
+Estes scripts não devem ser usados para outros fins;
+A responsabilidade pelo uso destes scripts é de quem está utilizando;
 Ao realizar o Download estará aceitando estes termos.
 ------------------------------------------------------------------------------------------------
 

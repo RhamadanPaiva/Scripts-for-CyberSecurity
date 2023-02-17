@@ -1,0 +1,50 @@
+#!/bin/bash
+echo ""
+echo ""
+echo -e "\e[31;1m----------------- WEB MAPPER ----------------------\e[m";
+echo ""
+echo -e "\e[33;1m                     ###\e[m";
+echo -e "\e[33;1m                    #   #\e[m";
+echo -e "\e[33;1m                       #\e[m";
+echo -e "\e[33;1m                      #\e[m";
+echo -e "\e[33;1m                      #\e[m";
+echo ""
+echo -e "\e[33;1m                      #\e[m";
+echo -e "\e[31;1m--------------------------------By RHAMADAN--------\e[m";
+echo ""
+if [ "$1" == "" ]
+then
+    echo -e "\e[31;1m---------------------------------------------------\e[m";
+    echo "Parâmetro não inserido"
+    echo ""
+    echo "Modo de uso: $0 URL ou IP"
+    echo ""
+    echo "Ex: $0 site.com.br"
+    echo "Ex: $0 56.257.123.258"
+    echo -e "\e[31;1m---------------------------------------------------\e[m";
+else
+echo -e "\e[33;1mVarrendo a página web $1...\e[m";
+echo ""
+rm index.html 2> /dev/null
+wget $1 2> /dev/null
+echo -e "\e[33;1mHosts encontrados:\e[m";
+rm hosts_encontrados.txt 2> /dev/null
+cat index.html | grep "href" | cut -d "/" -f 3 | grep -v "<li" | grep "\." | cut -d '"' -f 1 > hosts_encontrados.txt
+echo ""
+echo ""
+cat hosts_encontrados.txt
+echo ""
+echo -e "\e[31;1m---------------------------------------------------\e[m";
+echo ""
+echo -e "\e[33;1mDescobrindo IP's...\e[m";
+echo ""
+echo ""
+for url in $(cat hosts_encontrados.txt);
+do
+host $url | cut -d " " -f 4 2> /dev/null | sed s/found:/$url/
+done
+echo ""
+echo -e "\e[31;1m___________________________________________________\e[m";
+rm hosts_encontrados.txt
+rm index.html
+fi

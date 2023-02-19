@@ -3,7 +3,7 @@ Somente utilize somente para fins profissionais e com autorização do contratan
 Estes Scripts não devem ser usados para outros fins
 A responsabilidade pelo uso dos scripts é de quem está utilizando
 Ao realizar o Download estará aceitando estes termos.
--------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
 
                         WEB MAPPER
 
@@ -15,7 +15,7 @@ Ao realizar o Download estará aceitando estes termos.
                 Ex: ./Web-Mapper.sh site.com.br
                 Ex: ./Web-Mapper.sh 192.168.0.200
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------
 -
                TESTER AND ACTIVATOR OF KNOCKING
 
@@ -33,4 +33,4 @@ Caso sejam apenas 03 pacotes SYN enviados de portas diferentes em sequência, es
 O mesmo se dá caso forem necessárias menos portas, coloque qualquer valor para a 1ª PORTA e para 2ª PORTA e inicie a sequencia a partir da 3ª PORTA.
 
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------

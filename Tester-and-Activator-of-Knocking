@@ -1,0 +1,64 @@
+#!/bin/bash
+echo ""
+echo ""
+echo -e "\e[41;1m------------ TESTER AND ACTIVATOR OF KNOCKING --------------------\e[m"
+echo ""
+echo "-----------------------------------------------------------------------------"
+if [ "$1" == "" ]
+then
+    echo -e "\e[36;1mParâmetro não inserido - Coloque o IP e Portas\e[m"
+echo -e "\e[36;1m\e[m"
+    echo -e "\e[36;1mpara o knoking em sequência, conforme exemplo:\e[m"
+    echo ""
+    echo -e "\e[36;1mModo de uso: $0 IP 1ªPORTA 2ªPORTA 3ªPORTA 4ªPORTA 5ªPORTA\e[m"
+    echo ""
+    echo -e "\e[36;1mObs: a 5ª PORTA é a que será aberta no servidor\e[m"
+    echo ""
+    echo -e "\e[36;1mEx: $0 site.com.br 170 20 3698 50 22\e[m"
+    echo ""
+    echo -e "\e[36;1mEx: $0 192.168.0.1 40 23 5872 10000 22\e[m"
+    echo "-----------------------------------------------------------------------------"
+else
+echo -e "\e[36;1mVarrendo o servidor $1\e[m";
+fi
+rm index.html 2> /dev/null
+echo ""
+echo ""
+echo -e "\e[36;1mEnviando SYN para porta $2...\e[m";
+echo ""
+hping3 -S -p $2 -c 1 $1 2> /dev/null 1> /dev/nul
+echo -e "\e[36;1mEnviando SYN para porta $3...\e[m";
+echo ""
+hping3 -S -p $3 -c 1 $1 2> /dev/null 1> /dev/null
+echo -e "\e[36;1mEnviando SYN para porta $4...\e[m";
+echo ""
+hping3 -S -p $4 -c 1 $1 2> /dev/null 1> /dev/null
+echo -e "\e[36;1mEnviando SYN para porta $5...\e[m";
+echo ""
+hping3 -S -p $5 -c 1 $1 2> /dev/null 1> /dev/null
+echo ""
+echo "-----------------------------------------------------------------------------"
+echo ""
+echo -e "\e[36;1mAguardando a porta $6 abrir...\e[m";
+echo ""
+echo "..."
+echo ""
+hping3 -S -p $6 -c 1 $1 > servidor_busca.txt 2> /dev/null
+cat servidor_busca.txt | grep "ip=" | cut -d " " -f 6 | sed 's/flags=SA/PORTA ABERTA/'
+echo ""
+echo "-----------------------------------------------------------------------------"
+echo ""
+echo -e "\e[36;1mRealizando teste...\e[m";
+echo ""
+wget $1:$6 2> /dev/null
+echo ""
+echo -e "\e[31;1mTeste finalizado!\e[m";
+echo ""
+echo "-----------------------------------------------------------------------------"
+echo -e "\e[43;1mResultado encontrado:\e[m";
+echo ""
+cat index.html | sed 's/<br>//' | sed 's/<hr>//'
+echo""
+rm index.html
+rm servidor_busca.txt
+echo "-----------------------------------------------------------------------------"

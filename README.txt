@@ -16,7 +16,7 @@ Ao realizar o Download estará aceitando estes termos.
                 Ex: ./Web-Mapper.sh 192.168.0.200
 
 -------------------------------------------------------------------------------------------------------------------
--
+
                TESTER AND ACTIVATOR OF KNOCKING
 
 1) No linux, abra o nano e copie este código escrito em Bash
@@ -31,6 +31,5 @@ que possua este meio como método de ativação.
 
 Caso sejam apenas 03 pacotes SYN enviados de portas diferentes em sequência, escreva qualquer número na 1ª PORTA, e inicie a sequência a partir da 2ª PORTA.
 O mesmo se dá caso forem necessárias menos portas, coloque qualquer valor para a 1ª PORTA e para 2ª PORTA e inicie a sequencia a partir da 3ª PORTA.
-
 
 -------------------------------------------------------------------------------------------------------------------

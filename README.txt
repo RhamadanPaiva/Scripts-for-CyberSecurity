@@ -26,8 +26,8 @@ Ao realizar o Download estará aceitando estes termos.
 
                 Ex: ./Tester-and-Activator-of-Knocking.sh 192.168.0.200 443 25 26 30300 80
 
-Obs: O script foi feito para funcionar com até 4 portas, que quando em sequência enviando um pacote SYN, abrirá uma backdoor pré-existente em outro local
-que possua este meio como método de ativação.
+Obs: O script foi feito para funcionar com até 4 portas, que quando em sequência enviando um pacote SYN, abrirá uma porta por meio de algum script
+instalado neste host que possua este método (Port Knock) como ativação.
 
 Caso sejam apenas 03 pacotes SYN enviados de portas diferentes em sequência, escreva qualquer número na 1ª PORTA, e inicie a sequência a partir da 2ª PORTA.
 O mesmo se dá caso forem necessárias menos portas, coloque qualquer valor para a 1ª PORTA e para 2ª PORTA e inicie a sequencia a partir da 3ª PORTA.

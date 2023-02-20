@@ -33,3 +33,20 @@ Caso sejam apenas 03 pacotes SYN enviados de portas diferentes em sequência, es
 O mesmo se dá caso forem necessárias menos portas, coloque qualquer valor para a 1ª PORTA e para 2ª PORTA e inicie a sequencia a partir da 3ª PORTA.
 
 -------------------------------------------------------------------------------------------------------------------
+
+          TESTER AND ACTIVATOR OF KNOCKING FOR NETWORK
+
+1) No linux, abra o nano e copie este código escrito em Bash
+2) Salve como Tester-and-Activator-of-Knocking-for-Network.sh
+3) Dê autorização ao script em primeiro, utilizando: chmod +x ./Tester-and-Activator-of-Knocking-for-Network.sh
+4) Para rodar deve estar na mesma pasta e digitar ./Tester-and-Activator-of-Knocking-for-Network.sh IP_REDE 1ªPORTA 2ªPORTA 3ªPORTA 4ªPORTA PORTA_QUE_SERÁ_ABERTA
+
+                Ex: ./Tester-and-Activator-of-Knocking-for-Network.sh 192.168.0 443 25 26 30300 80
+
+5) A varredura será feita para máscara /24 255.255.255.0
+
+Obs: O script foi feito para funcionar com até 4 portas, que quando em sequência enviando um pacote SYN, abrirá uma porta por meio de algum script
+instalado previamente neste host, e que possua este método (Port Knock) como ativação.
+
+Caso sejam apenas 03 pacotes SYN enviados de portas diferentes em sequência, escreva qualquer número na 1ª PORTA, e inicie a sequência a partir da 2ª PORTA.
+O mesmo se dá caso forem necessárias menos portas, coloque qualquer valor para a 1ª PORTA e para 2ª PORTA e inicie a sequencia a partir da 3ª PORTA.

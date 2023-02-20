@@ -1,0 +1,67 @@
+#!/bin/bash
+echo ""
+echo ""
+echo -e "\e[41;1m--------------- TESTER AND ACTIVATOR OF KNOCKING FOR NETWORK ----------------\e[m"
+echo ""
+echo "-----------------------------------------------------------------------------"
+echo -e "\e[33;1mPara interromper a execução, segure CTRL+C\e[m"
+echo ""
+if [ "$1" == "" ]
+then
+    echo -e "\e[36;1mParâmetro não inserido - Coloque o IP e Portas\e[m"
+echo -e "\e[36;1m\e[m"
+    echo -e "\e[36;1mpara o knoking em sequência, conforme exemplo:\e[m"
+    echo ""
+    echo -e "\e[36;1mModo de uso: $0 IP 1ªPORTA 2ªPORTA 3ªPORTA 4ªPORTA 5ªPORTA\e[m"
+    echo ""
+    echo -e "\e[36;1mObs: a 5ª PORTA é a que será aberta no servidor\e[m"
+    echo ""
+    echo -e "\e[36;1mEx: $0 192.168.0 40 23 5872 10000 22\e[m"
+    echo "-----------------------------------------------------------------------------"
+else
+echo -e "\e[41;1mAnalisando a rede $1.0/24\e[m"
+echo ""
+rm servidor_busca.txt 2> /dev/null
+rm servidor_porta_aberta.txt 2> /dev/null
+rm ips_porta_aberta.txt 2> /dev/null
+rm index.html 2> /dev/null
+for host in {1..254};
+do
+echo -e "\e[36;1mVarrendo o servidor $1.$host\e[m";
+hping3 -s -p $2 -c 1 $1.$host 2> /dev/null 1> /dev/null
+hping3 -S -p $3 -c 1 $1.$host 2> /dev/null 1> /dev/null
+hping3 -S -p $4 -c 1 $1.$host 2> /dev/null 1> /dev/null
+hping3 -S -p $5 -c 1 $1.$host 2> /dev/null 1> /dev/null
+echo "..."
+hping3 -S -p $6 -c 1 $1.$host > servidor_busca.txt 2> /dev/null
+hping3 -S -p $6 -c 1 $1.$host >> servidor_porta_aberta.txt 2> /dev/null
+echo ""
+cat servidor_busca.txt | grep "flags=SA" | cut -d " " -f 6,7 | sed 's/sport=1337//' | sed 's/flags=SA/PORTA ABERTA/' | sed 's/seq=0//'
+done
+fi
+echo ""
+echo "-----------------------------------------------------------------------------"
+grep "ip=" servidor_porta_aberta.txt | cut -d " " -f 2 | sed 's/ip=//' > ips_porta_aberta.txt
+echo ""
+echo ""
+for ip in $(cat ips_porta_aberta.txt);
+do
+echo -e "\e[33;1mRealizando teste em $ip...\e[m";
+echo ""
+wget $ip:$6 2> /dev/null
+echo ""
+echo "..."
+echo ""
+echo -e "\e[31;1mTeste finalizado!\e[m";
+echo ""
+echo "-----------------------------------------------------------------------------"
+echo -e "\e[43;1mResultado encontrado:\e[m";
+echo ""
+cat index.html | sed 's/<br>//' | sed 's/<hr>//'
+echo""
+rm index.html 2> /dev/null
+rm servidor_busca.txt 2> /dev/null
+rm servidor_porta_aberta.txt 2> /dev/null
+echo "-----------------------------------------------------------------------------"
+done
+rm ips_porta_aberta.txt 2> /dev/null

@@ -41,7 +41,7 @@ done
 fi
 echo ""
 echo "-----------------------------------------------------------------------------"
-grep "ip=" servidor_porta_aberta.txt | cut -d " " -f 2 | sed 's/ip=//' > ips_porta_aberta.txt
+grep "flags=SA" servidor_porta_aberta.txt | cut -d " " -f 2 | sed 's/ip=//' > ips_porta_aberta.txt
 echo ""
 echo ""
 for ip in $(cat ips_porta_aberta.txt);

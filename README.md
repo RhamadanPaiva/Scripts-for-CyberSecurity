@@ -71,10 +71,29 @@ curl https://raw.githubusercontent.com/RhamadanPaiva/Scripts-for-CyberSecurity/m
 ```
 Exemplos de uso:
 ```
-./Portscan-tcp.py site.com.br
+python Portscan-tcp.py site.com.br
 ```
 ```
-./Portscan-tcp.py 192.168.0.1
+python Portscan-tcp.py 192.168.0.1
 ```
 
 Durante a varredura, uma tentativa de conexão via socket é feita para cada porta no range de 1 até 65535, utilizando o protocolo TCP.
+
+# BANNER GRABBING
+
+Baixe o script:
+```
+curl https://raw.githubusercontent.com/RhamadanPaiva/Scripts-for-CyberSecurity/main/banner-grabbing.txt > banner-grabbing.py; chmod +x banner-grabbing.py
+```
+Exemplos de uso:
+```
+python banner-grabbing.py
+```
+```
+Digite o ip ou site: site.com.br
+Digite a porta: 22
+```
+```
+Digite o ip ou site: 192.168.0.10
+Digite a porta: 80
+```

@@ -61,3 +61,20 @@ Obs: O script foi feito para funcionar com até 4 portas, que quando em sequênc
 Caso sejam apenas 03 pacotes SYN enviados de portas diferentes em sequência, escreva qualquer número na 1ª PORTA, e inicie a sequência a partir da 2ª PORTA.
 
 O mesmo se dá caso forem necessárias menos portas, coloque qualquer valor para a 1ª PORTA e para 2ª PORTA e inicie a sequencia a partir da 3ª PORTA.
+
+
+# PORTSCAN
+
+Baixe o script:
+```
+curl https://raw.githubusercontent.com/RhamadanPaiva/Scripts-for-CyberSecurity/main/Portscan-tcp.txt > Portscan-tcp.py; chmod +x Portscan-tcp.py
+```
+Exemplos de uso:
+
+./Portscan-tcp.py site.com.br
+```
+```
+./Portscan-tcp.py 192.168.0.1
+```
+
+Durante a varredura, uma tentativa de conexão via socket é feita para cada porta no range de 1 até 65535, utilizando o protocolo TCP.

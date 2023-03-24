@@ -1,0 +1,14 @@
+#!/usr/bin/python
+
+import socket,sys
+from termcolor import colored
+
+for porta in range(1,65535):
+        meusocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        meusocket.settimeout(1)
+        if meusocket.connect_ex((sys.argv[1],porta)) == 0:
+                print (colored(f"Porta {porta} [ABERTA]", 'grey', 'on_yellow', ['bold']))
+                meusocket.close()
+        else:
+                print (colored(f"Porta {porta} [FECHADA]",'red'))
+                meusocket.close()

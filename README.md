@@ -70,7 +70,7 @@ Baixe o script:
 curl https://raw.githubusercontent.com/RhamadanPaiva/Scripts-for-CyberSecurity/main/Portscan-tcp.txt > Portscan-tcp.py; chmod +x Portscan-tcp.py
 ```
 Exemplos de uso:
-
+```
 ./Portscan-tcp.py site.com.br
 ```
 ```

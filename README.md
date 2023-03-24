@@ -97,3 +97,4 @@ Digite a porta: 22
 Digite o ip ou site: 192.168.0.10
 Digite a porta: 80
 ```
+O script retorna o banner apresentado por um serviço que esteja em execução.

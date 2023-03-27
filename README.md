@@ -98,3 +98,16 @@ Digite o ip ou site: 192.168.0.10
 Digite a porta: 80
 ```
 O script retorna o banner apresentado por um serviço que esteja em execução.
+
+# DNS RESOLVER,
+
+Baixe o script:
+```
+curl https://raw.githubusercontent.com/RhamadanPaiva/Scripts-for-CyberSecurity/main/dns-resolver.txt > dns-resolver.py; chmod +x dnsresolver.py
+```
+Exemplo de uso:
+```
+python dns-resolver site.com.br
+```
+
+O script retorná o IP do site.

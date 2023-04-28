@@ -99,7 +99,7 @@ Digite a porta: 80
 ```
 O script retorna o banner apresentado por um serviço que esteja em execução.
 
-# DNS RESOLVER,
+# DNS RESOLVER
 
 Baixe o script:
 ```
@@ -111,3 +111,14 @@ python dns-resolver site.com.br
 ```
 
 O script retorná o IP do site.
+
+# WHOIS
+
+Modo de uso: python whois.py site.com.br
+
+
+# TRANSF ZONA
+
+Modo de uso: ./transf_zona site.com.br
+
+

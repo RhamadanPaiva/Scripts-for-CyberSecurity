@@ -1,0 +1,26 @@
+#!/bin/bash
+
+
+echo -e "\e[31;1m---------------------------------------------------\e[m";
+echo -e "\e[31;1m------TRANSFERENCIA DE ZONA - by Rhamadan----------\e[m";
+echo -e "\e[31;1m---------------------------------------------------\e[m";
+echo " "
+echo " "
+if [ "$1" == "" ]
+then
+    echo -e "\e[33;1mModo de uso: ./transfer_zona DOMÍNIO\e[m"
+    echo -e "\e[33;1mEx: ./transfer_zona site.com.br\e[m"
+else
+echo -e "\e[33;1mRealizando teste...\e[m"
+echo " "
+echo " "
+for server in $(host -t ns $1 | cut -d " " -f4 | sed 's/.$//');
+do
+echo " "
+echo -e "\e[33;1mTestando Name Server: $server\e[m"
+echo " "
+host -l -a $1 $server;
+done
+fi
+echo " "
+echo -e "\e[31;1m---------------Teste finalizado-------------------\e[m"

@@ -107,18 +107,33 @@ curl https://raw.githubusercontent.com/RhamadanPaiva/Scripts-for-CyberSecurity/m
 ```
 Exemplo de uso:
 ```
-python dns-resolver site.com.br
+python dns-resolver.py site.com.br
 ```
 
 O script retorná o IP do site.
 
 # WHOIS
 
-Modo de uso: python whois.py site.com.br
+Baixe o script:
+```
+curl https://raw.githubusercontent.com/RhamadanPaiva/Scripts-for-CyberSecurity/main/whois.py.txt > whois.py; chmod +x whois.py
+```
+
+Exemplo de uso
+```
+python whois site.com.br
+```
+O script realizar buscas começando pela IANA e seguindo as buscas conforme as referências.
 
 
 # TRANSF ZONA
 
-Modo de uso: ./transf_zona site.com.br
+Baixe o script:
+```
+curl https://raw.githubusercontent.com/RhamadanPaiva/Scripts-for-CyberSecurity/main/transf_zona.sh.txt > transf_zona.sh; chmod +x transf_zona.sh
+```
 
-
+Exemplo de uso:
+```
+./transf_zona site.com.br
+```

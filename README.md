@@ -137,3 +137,16 @@ Exemplo de uso:
 ```
 ./transf_zona site.com.br
 ```
+
+
+# SUBDOMAIN TAKEOVER
+
+Baixe o script:
+```
+curl https://raw.githubusercontent.com/RhamadanPaiva/Scripts-for-CyberSecurity/main/subdomain-takeover.sh.txt > subdomain-takeover.sh; chmod +x subdomain-takeover.sh
+```
+
+Exemplo de uso:
+```
+./subdomain-takeover wordlist.txt site.com.br
+```

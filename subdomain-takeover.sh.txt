@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo " "
+echo " "
+echo -e "\e[41;1m-------------------SUBDOMAIN TAKEOVER -------------------\e[m";
+echo -e "\e[41;1m--------------------------------------By-Rhamadan--------\e[m";
+echo " "
+wordlist="$1"
+dominio="$2"
+
+echo -e "\e[33;1mTestando...\e[m"
+for palavra in $(cat $wordlist);
+do
+host -t cname $palavra.$dominio | grep "alias for"
+done
+echo -e "\e[41;1mTeste finalizado\e[m"

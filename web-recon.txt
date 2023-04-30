@@ -1,0 +1,86 @@
+#!/bin/bash
+
+echo -e "\e[46;1m--------------------------WEB-RECON-----------------------------\e>
+echo -e "\e[46;1m-------------------------------------------------by:Rhamadan____\e>
+echo " "
+echo -e "\e[33;1mModo de uso: ./web-recon.sh wordlist.txt http://site.com.br php\e[m"
+echo " "
+echo " "
+wordlist="$1"
+dominio="$2"
+extensao="$3"
+
+echo -e "\e[31;1mBusca inicializada em: $(date)\e[m"
+echo " "
+echo -e "\e[33;1mBuscando diretórios...\e[m"
+echo " "
+
+for palavra in $(cat $wordlist);
+do
+resposta=$(curl -s -H "User-Agent: Chrome/51.0.2704.103" -o /dev/null -w "%{http_code}" $dominio/$palavra/)
+
+if [ $resposta == "200" ]
+then
+echo -e "\e[33;1mDiretório encontrado: $dominio/$palavra\e[m"
+elif [ $resposta == "301" ]
+then
+echo -e "\e[32;1mDiretório movido permanentemente encontrado: $dominio/$palavra\e[m"
+elif [ $resposta == "403" ]
+then
+echo -e "\e[31;1mDiretório proibido encontrado: $dominio/$palavra\e[m"
+elif [ $resposta == "401" ]
+then
+echo -e "\e[31;1mDiretório não autorizado encontrado: $dominio/$palavra\e[m"
+elif [ $resposta == "500" ]
+then
+echo -e "\e[36;1mDiretório (Internal Server Error) encontrado: $dominio/$palavra\e[m"
+elif [ $resposta == "503" ]
+then
+echo -e "\e[35;1mDiretório com serviço indisponível encontrado: $dominio/$palavra\e[m"
+elif [ $resposta == "307" ]
+then
+echo -e "\e[32;1mDiretório de redirecionamento temporário encontrado: $dominio/$palavra\e[m"
+fi
+done
+
+echo -e "\e[33;1mBuscando arquivos...\e[m"
+
+
+resposta=$(curl -s -H "User-Agent: Chrome/51.0.2704.103" -o /dev/null -w "%{http_code}" $dominio/robots.txt
+if [ $resposta == "200" ]
+then
+echo -e "\e[43;1mArquivo encontrado: $dominio/robots.txt\e[m"
+resposta=$(curl -s -H "User-Agent: Chrome/51.0.2704.103" -o /dev/null -w "%{http_code}" $dominio/sitemap.xml
+elif [ $resposta == "200" ]
+echo -e "\e[43;1mArquivo encontrado: $dominio/sitemap.xml\e[m"
+fi
+
+for palavra in $(cat $wordlist);
+do
+resposta=$(curl -s -H "User-Agent: Chrome/51.0.2704.103" -o /dev/null -w "%{http_code}" $dominio/$palavra.$extensao)
+
+if [ $resposta == "200" ]
+then
+echo -e "\e[43;1mArquivo encontrado: $dominio/$palavra\e[m"
+elif [ $resposta == "301" ]
+then
+echo -e "\e[42;1mArquivo movido permanentemente encontrado: $dominio/$palavra\e[m"
+elif [ $resposta == "403" ]
+then
+echo -e "\e[41;1mArquivo proibido encontrado: $dominio/$palavra\e[m"
+elif [ $resposta == "401" ]
+then
+echo -e "\e[41;1mArquivo não autorizado encontrado: $dominio/$palavra\e[m"
+elif [ $resposta == "500" ]
+then
+echo -e "\e[46;1mArquivo (Internal Server Error) encontrado: $dominio/$palavra\e[m"
+elif [ $resposta == "503" ]
+then
+echo -e "\e[45;1mArquivo com serviço indisponível encontrado: $dominio/$palavra\e[m"
+elif [ $resposta == "307" ]
+then
+echo -e "\e[32;1mArquivo com  redirecionamento temporário encontrado: $dominio/$palavra\e[m"
+fi
+done
+
+echo -e "\e[31;1mBusca finalizada em: $(date)\e[m"

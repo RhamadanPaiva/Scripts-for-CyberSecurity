@@ -46,12 +46,15 @@ done
 echo -e "\e[33;1mBuscando arquivos...\e[m"
 
 
-resposta=$(curl -s -H "User-Agent: Chrome/51.0.2704.103" -o /dev/null -w "%{http_code}" $dominio/robots.txt
+resposta=$(curl -s -H "User-Agent: Chrome/51.0.2704.103" -o /dev/null -w "%{http_code}" $dominio/robots.txt)
 if [ $resposta == "200" ]
 then
 echo -e "\e[43;1mArquivo encontrado: $dominio/robots.txt\e[m"
-resposta=$(curl -s -H "User-Agent: Chrome/51.0.2704.103" -o /dev/null -w "%{http_code}" $dominio/sitemap.xml
-elif [ $resposta == "200" ]
+fi
+
+resposta=$(curl -s -H "User-Agent: Chrome/51.0.2704.103" -o /dev/null -w "%{http_code}" $dominio/sitemap.xml)
+if [ $resposta == "200" ]
+then
 echo -e "\e[43;1mArquivo encontrado: $dominio/sitemap.xml\e[m"
 fi
 

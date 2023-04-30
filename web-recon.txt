@@ -64,25 +64,25 @@ resposta=$(curl -s -H "User-Agent: Chrome/51.0.2704.103" -o /dev/null -w "%{http
 
 if [ $resposta == "200" ]
 then
-echo -e "\e[43;1mArquivo encontrado: $dominio/$palavra\e[m"
+echo -e "\e[43;1mArquivo encontrado: $dominio/$palavra.$extensao\e[m"
 elif [ $resposta == "301" ]
 then
-echo -e "\e[42;1mArquivo movido permanentemente encontrado: $dominio/$palavra\e[m"
+echo -e "\e[42;1mArquivo movido permanentemente encontrado: $dominio/$palavra.$extensao\e[m"
 elif [ $resposta == "403" ]
 then
-echo -e "\e[41;1mArquivo proibido encontrado: $dominio/$palavra\e[m"
+echo -e "\e[41;1mArquivo proibido encontrado: $dominio/$palavra.$extensao\e[m"
 elif [ $resposta == "401" ]
 then
-echo -e "\e[41;1mArquivo não autorizado encontrado: $dominio/$palavra\e[m"
+echo -e "\e[41;1mArquivo não autorizado encontrado: $dominio/$palavra.$extensao\e[m"
 elif [ $resposta == "500" ]
 then
-echo -e "\e[46;1mArquivo (Internal Server Error) encontrado: $dominio/$palavra\e[m"
+echo -e "\e[46;1mArquivo (Internal Server Error) encontrado: $dominio/$palavra.$extensao\e[m"
 elif [ $resposta == "503" ]
 then
-echo -e "\e[45;1mArquivo com serviço indisponível encontrado: $dominio/$palavra\e[m"
+echo -e "\e[45;1mArquivo com serviço indisponível encontrado: $dominio/$palavra.$extensao\e[m"
 elif [ $resposta == "307" ]
 then
-echo -e "\e[32;1mArquivo com  redirecionamento temporário encontrado: $dominio/$palavra\e[m"
+echo -e "\e[32;1mArquivo com  redirecionamento temporário encontrado: $dominio/$palavra.$extensao\e[m"
 fi
 done
 

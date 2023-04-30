@@ -17,7 +17,7 @@ echo " "
 
 for palavra in $(cat $wordlist);
 do
-resposta=$(curl -s -H "User-Agent: Chrome/51.0.2704.103" -o /dev/null -w "%{http_code}" $dominio/$palavra/)
+resposta=$(curl -s -H "User-Agent: Chrome/51.0.2704.103" -o /dev/null -w "%{http_code}" $dominio/$palavra)
 
 if [ $resposta == "200" ]
 then

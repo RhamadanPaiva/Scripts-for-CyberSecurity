@@ -1,0 +1,19 @@
+#!/bin/bash
+
+echo " "
+echo -e "\e[41;1m-------------------SUBDOMAIN DISCOVERY -------------------\e[m";
+echo -e "\e[41;1m---------------------------------------By-Rhamadan--------\e[m";
+echo " "
+echo " "
+echo "Modo de uso: ./subdomain-discovery /caminho-wordlist site.com.br"
+echo " "
+
+wordlist="$1"
+dominio="$2"
+
+for palavra in $(cat "$wordlist"); do
+    resposta=$(curl -s -H "User-Agent: Chrome/51.0.2704.103" -o /dev/null -w "%{http_code}" "$palavra.$dominio")
+    if [ "$resposta" -ne 000 ]; then
+        echo "$palavra.$dominio"
+    fi
+done

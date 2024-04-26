@@ -4,6 +4,19 @@
 **A responsabilidade pelo uso dos scripts é de quem está utilizando**<br>
 **Ao realizar o Download estará aceitando estes termos**<br>
 
+# SUBDOMAIN DISCOVERY
+Realiza Brute Force a fim de encontrar subdomínios:
+
+Baixe o script:
+```
+curl https://raw.githubusercontent.com/RhamadanPaiva/Scripts-for-CyberSecurity/main/Web-Mapper.txt > subdomain-discovery.sh; chmod +x subdomain-discovery.sh
+```
+
+Exemplos de uso:
+```
+./subdomain-discovery.sh /caminho-wordlist/wordlist.txt site.com.br
+```
+
 
 # WEB MAPPER
 

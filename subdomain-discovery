@@ -5,7 +5,7 @@ echo -e "\e[41;1m-------------------SUBDOMAIN DISCOVERY -------------------\e[m"
 echo -e "\e[41;1m---------------------------------------By-Rhamadan--------\e[m";
 echo " "
 echo " "
-echo "Modo de uso: ./subdomain-discovery /caminho-wordlist site.com.br"
+echo "Modo de uso: ./subdomain-discovery /caminho-wordlist/wordlist.txt site.com.br"
 echo " "
 
 wordlist="$1"
